@@ -12,7 +12,7 @@ class TestLogin(unittest.TestCase):
     def test__nama(self): 
         # steps
         browser = self.browser #buka web browser
-        browser.get("https://opensource-demo.orangehrmlive.com/")
+        browser.get("http://opensource-demo.orangehrmlive.com/")
         browser.find_element(By.NAME, 'username').send_keys('Admin')
         time.sleep(1)
         browser.find_element(By.NAME, 'password').send_keys('admin123')
@@ -31,7 +31,7 @@ class TestLogin(unittest.TestCase):
     def test__ID(self): 
         # steps
         browser = self.browser #buka web browser
-        browser.get("https://opensource-demo.orangehrmlive.com/")
+        browser.get("http://opensource-demo.orangehrmlive.com/")
         browser.find_element(By.NAME, 'username').send_keys('Admin')
         time.sleep(1)
         browser.find_element(By.NAME, 'password').send_keys('admin123')
@@ -47,7 +47,7 @@ class TestLogin(unittest.TestCase):
         # steps
                 # steps
         browser = self.browser #buka web browser
-        browser.get("https://opensource-demo.orangehrmlive.com/")
+        browser.get("http://opensource-demo.orangehrmlive.com/")
         browser.find_element(By.NAME, 'username').send_keys('Admin')
         time.sleep(1)
         browser.find_element(By.NAME, 'password').send_keys('admin123')
