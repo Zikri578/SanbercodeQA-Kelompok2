@@ -12,7 +12,7 @@ class TestLogin(unittest.TestCase):
     def test__nama(self): 
         # steps
         browser = self.browser #buka web browser
-        browser.get("http://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee")
+        browser.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee")
         """ 
         browser.find_element(By.NAME, 'username').send_keys('Admin')
         time.sleep(1)
@@ -31,14 +31,14 @@ class TestLogin(unittest.TestCase):
     def test__ID(self): 
         # steps
         browser = self.browser #buka web browser
-        browser.get("http://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee")
+        browser.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee")
         browser.find_element(By.CLASS_NAME, 'oxd-input oxd-input--active').send_keys('111')
         time.sleep(1)
         
     def save__employee(self): 
         # steps
         browser = self.browser #buka web browser
-        browser.get("http://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee")
+        browser.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee")
         browser.find_element(By.NAME, 'firstName').send_keys('Diego')
         time.sleep(1)
         browser.find_element(By.NAME, 'middleName').send_keys('Yanda')
