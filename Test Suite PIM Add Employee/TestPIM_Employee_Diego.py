@@ -30,8 +30,6 @@ class TestLogin(unittest.TestCase):
         time.sleep(3)
         browser.find_element(By.NAME, 'lastName').send_keys('Setiawan')
         time.sleep(3)
-        browser.find_element(By.XPATH, "//button[normalize-space()='Save']").click()
-        time.sleep(3)
         
     def test_cancel_employee(self): 
         browser = self.browser
@@ -54,7 +52,7 @@ class TestLogin(unittest.TestCase):
         time.sleep(3)
         browser.find_element(By.NAME, 'lastName').send_keys('Setiawan')
         time.sleep(3)
-        setup.find_element(By.XPATH, "//button[normalize-space()='Cancel']").click()
+        browser.find_element(By.XPATH, "//button[normalize-space()='Cancel']").click()
         time.sleep(3)
         
     def test_save_employee(self): 
