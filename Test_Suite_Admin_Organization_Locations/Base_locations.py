@@ -21,7 +21,7 @@ class TestLoc(unittest.TestCase):
         browser.find_element(By.CLASS_NAME, "oxd-button").click()
         time.sleep(2)
         browser.find_element(By.XPATH,elem.admin).click() #Open Menu Admin
-        time.sleep(1)
+        time.sleep(2)
         browser.find_element(By.XPATH,elem.org).click() 
         time.sleep(1)
         browser.find_element(By.XPATH,elem.loc).click() #Menu Locations

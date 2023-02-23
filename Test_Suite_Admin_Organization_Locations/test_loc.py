@@ -17,8 +17,8 @@ class TestSearch(unittest.TestCase):
         #self.browser = TestLoc.base_loc
         browser = self.browser
         TestLoc.base_loc(browser)
-    
-        browser.find_element(By.XPATH,elem.src_city).send_keys("Canadian Regional HQ")
+        time.sleep(2)
+        browser.find_element(By.XPATH,elem.src_name).send_keys("Canadian Regional HQ") #Right Name
         time.sleep(1)
         browser.find_element(By.XPATH,elem.src_btn).click()
         time.sleep(2)
