@@ -8,8 +8,7 @@ from page import elem
 from Base_locations import TestLoc
 
 class TestSearch(unittest.TestCase):
-    #def setUp(self):
-    
+        
     def setUp(self):
         self.browser = webdriver.Chrome(ChromeDriverManager().install())
 
