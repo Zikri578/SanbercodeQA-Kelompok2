@@ -2,7 +2,6 @@ import unittest
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 #from selenium.webdriver.support.select import Select
 from webdriver_manager.chrome import ChromeDriverManager
 from page import elem
@@ -30,10 +29,17 @@ class TestEdit(unittest.TestCase):
         browser.execute_script("window.scrollTo(0,document.body.scrollHeight)")
         time.sleep(1)
         browser.find_element(By.XPATH,"//*[@id='app']/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[1]/div/div[7]/div/button[2]").click()
-        time.sleep(2)
-        browser.find_element(By.XPATH,"//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/input").clear_f
+        time.sleep(3)
+        browser.find_element(By.XPATH,"//input[@class= 'oxd-input oxd-input--active']").clear()
+        browser.find_element(By.XPATH,"//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/input").send_keys("Software In")
         time.sleep(1)
-        
+        browser.find_element(By.XPATH,"//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input").clear()
+        time.sleep(1)
+        browser.find_element(By.XPATH,"//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input").send_keys("Jakarta")
+        time.sleep(1)
+        browser.find_element(By.XPATH,elem.edit_slc_country).click()
+        browser.find_element(By.XPATH,elem.edit_search_country).click()
+        time.sleep(1)       
 
 if __name__ == "__main__": 
     unittest.main()
