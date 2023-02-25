@@ -34,14 +34,37 @@ class TestAddJobTitle(unittest.TestCase):
 
         browser.find_element(By.XPATH, "//Button[normalize-space()='Add']").click()
         time.sleep(3)
-        browser.find_element(By.NAME, "username").send_keys("Admin")
+        browser.find_element(By.XPATH, "//input[normalize-space()='data-v-844e87dc']").send_keys("Desain Grafis")
         time.sleep(3)
 
 
+    # def test_a_delete_job_title(self):
+        # steps Login
+        browser = self.browser
+        browser.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+        time.sleep(3)
+        browser.find_element(By.NAME, "username").send_keys("Admin")
+        time.sleep(3)
+        browser.find_element(By.NAME, "password").send_keys("admin123")
+        time.sleep(3)
+        browser.find_element(By.CLASS_NAME, "oxd-button").click()
+        time.sleep(5)
+        browser.find_element(By.XPATH, "//span[normalize-space()='Admin']").click()
+        time.sleep(3)
+        browser.find_element(By.XPATH, "//span[normalize-space()='Job']").click()
+        time.sleep(3)
+        browser.find_element(By.LINK_TEXT, 'Job Titles').click()
+        time.sleep(3)
 
+        # validasi
+        current_url = browser.current_url
+        self.assertEqual(current_url, "https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewJobTitleList")
 
-    # def tearDown(self):
-    #     self.browser.close()
+        delete = browser.find_element(By.XPATH, "//button").click().text
+        self.assertEqual("QA", delete)
+
+    def tearDown(self):
+        self.browser.close()
 
 if __name__ == "__main__":
     unittest.main()
