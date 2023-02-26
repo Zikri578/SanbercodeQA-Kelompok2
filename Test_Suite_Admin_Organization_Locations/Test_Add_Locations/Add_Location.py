@@ -6,14 +6,13 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from page import elem
 
-class TestSearch(unittest.TestCase):
+class TestAdd(unittest.TestCase):
     def setUp(self):
         self.browser = webdriver.Chrome(ChromeDriverManager().install())
-        self.url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
     
     def test_a_add_Location_success(self):
         browser = self.browser
-        browser.get(self.url) #Open site
+        browser.get(elem.base_url) #Open site
         self.browser.maximize_window()
         time.sleep(3)
         browser.find_element(By.NAME, "username").send_keys("Admin") #Right Username
@@ -28,7 +27,7 @@ class TestSearch(unittest.TestCase):
         time.sleep(1)
         browser.find_element(By.XPATH,elem.add_btn).click() #Click Add
         time.sleep(1)
-        browser.find_element(By.XPATH,elem.add_name).send_keys("Sanbercode QXX")
+        browser.find_element(By.XPATH,elem.add_name).send_keys("Sanbercode")
         time.sleep(1)
         browser.find_element(By.XPATH,elem.add_city).send_keys("Palagan")
         time.sleep(1)
@@ -57,7 +56,7 @@ class TestSearch(unittest.TestCase):
 
     def test_b_add_Location_success_filled_only_required(self):
         browser = self.browser
-        browser.get(self.url) #Open site
+        browser.get(elem.base_url) #Open site
         self.browser.maximize_window()
         time.sleep(3)
         browser.find_element(By.NAME, "username").send_keys("Admin") #Right Username
@@ -72,7 +71,7 @@ class TestSearch(unittest.TestCase):
         time.sleep(1)
         browser.find_element(By.XPATH,elem.add_btn).click() #Click Add Data
         time.sleep(2)
-        browser.find_element(By.XPATH,elem.add_name).send_keys("Sanbercode GAP")
+        browser.find_element(By.XPATH,elem.add_name).send_keys("Sanbercode PTN")
         time.sleep(1)
         browser.find_element(By.XPATH,elem.add_slc_country).click()
         browser.find_element(By.XPATH,elem.add_srt_country).click()
@@ -85,9 +84,9 @@ class TestSearch(unittest.TestCase):
         response_data = browser.find_element(By.XPATH,elem.add_assert_b).text
         self.assertIn(response_data,"Admin")
         
-    def test_c_add_Location_failed_when_required_blank(self):
+    def test_c_add_Location_failed_required_blank(self):
         browser = self.browser
-        browser.get(self.url) #Open site
+        browser.get(elem.base_url) #Open site
         self.browser.maximize_window()
         time.sleep(3)
         browser.find_element(By.NAME, "username").send_keys("Admin") #Right Username
@@ -111,9 +110,9 @@ class TestSearch(unittest.TestCase):
         response_data = browser.find_element(By.XPATH,elem.add_assert_c).text
         self.assertIn(response_data,"Required")
 
-    def test_d_add_Location_failed_when_exceed_the_character_limit(self):
+    def test_d_add_Location_failed_exceed_the_character_limit(self):
         browser = self.browser
-        browser.get(self.url) #Open site
+        browser.get(elem.base_url) #Open site
         self.browser.maximize_window()
         time.sleep(3)
         browser.find_element(By.NAME, "username").send_keys("Admin") #Right Username
@@ -130,15 +129,11 @@ class TestSearch(unittest.TestCase):
         time.sleep(2)
         browser.find_element(By.XPATH,elem.add_name).send_keys("Sanbercode QZXSa")
         time.sleep(1)
-        browser.find_element(By.XPATH,elem.add_city).send_keys("Palagan")
-        time.sleep(1)
         browser.find_element(By.XPATH,elem.add_state).send_keys("Jaaaaakkkkkkaaaarrrrrrrrttttttttttttttttttaaaaaaaaaaaaaa")
         time.sleep(1)
         browser.find_element(By.XPATH,elem.add_slc_country).click()
         browser.find_element(By.XPATH,elem.add_srt_country).click()
         #Select(browser.find_element(By.XPATH,"//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[4]/div/div[2]/div/div/div[2]/i").click()).select_by_visible_text("Albania")
-        time.sleep(1)
-        browser.find_element(By.XPATH,elem.add_note).send_keys("Bootcamp QA")
         time.sleep(1)
         browser.find_element(By.XPATH,elem.add_save_btn).click()
         time.sleep(1)
@@ -149,7 +144,7 @@ class TestSearch(unittest.TestCase):
 
     def test_e_add_Location_failed_wrong_characters(self):
         browser = self.browser
-        browser.get(self.url) #Open site
+        browser.get(elem.base_url) #Open site
         self.browser.maximize_window()
         time.sleep(3)
         browser.find_element(By.NAME, "username").send_keys("Admin") #Right Username
@@ -166,10 +161,6 @@ class TestSearch(unittest.TestCase):
         time.sleep(1)
         browser.find_element(By.XPATH,elem.add_name).send_keys("Sanbercode QQaQW")
         time.sleep(1)
-        browser.find_element(By.XPATH,elem.add_city).send_keys("Palagan")
-        time.sleep(1)
-        browser.find_element(By.XPATH,elem.add_state).send_keys("Yogyakarta")
-        time.sleep(1)
         browser.find_element(By.XPATH,elem.add_slc_country).click()
         browser.find_element(By.XPATH,elem.add_srt_country).click()
         #Select(browser.find_element(By.XPATH,"//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[4]/div/div[2]/div/div/div[2]/i").click()).select_by_visible_text("Albania")
@@ -184,9 +175,9 @@ class TestSearch(unittest.TestCase):
         response_data = browser.find_element(By.XPATH,elem.add_assert_e).text
         self.assertIn(response_data,"Allows numbers and only + - / ( )")
 
-    def test_f_add_Location_failed_when_data_alredy_exist(self):
+    def test_f_add_Location_failed_data_alredy_exist(self):
         browser = self.browser
-        browser.get(self.url) #Open site
+        browser.get(elem.base_url) #Open site
         self.browser.maximize_window()
         time.sleep(3)
         browser.find_element(By.NAME, "username").send_keys("Admin") #Right Username
@@ -201,7 +192,7 @@ class TestSearch(unittest.TestCase):
         time.sleep(1)
         browser.find_element(By.XPATH,elem.add_btn).click() #Click Add Data
         time.sleep(2)
-        browser.find_element(By.XPATH,elem.add_name).send_keys("Canadian Regional HQ")
+        browser.find_element(By.XPATH,elem.add_name).send_keys("Sanbercode")
         time.sleep(1)
         browser.find_element(By.XPATH,elem.add_slc_country).click()
         browser.find_element(By.XPATH,elem.add_srt_country).click()
@@ -214,9 +205,9 @@ class TestSearch(unittest.TestCase):
         response_data = browser.find_element(By.XPATH,elem.add_assert_f).text
         self.assertIn(response_data,"Already exists")
 
-    def test_f_add_Location_cancel(self):
+    def test_g_add_Location_cancel(self):
         browser = self.browser
-        browser.get(self.url) #Open site
+        browser.get(elem.base_url) #Open site
         self.browser.maximize_window()
         time.sleep(3)
         browser.find_element(By.NAME, "username").send_keys("Admin") #Right Username
@@ -239,6 +230,10 @@ class TestSearch(unittest.TestCase):
         time.sleep(1)
         browser.find_element(By.XPATH,elem.add_cancel_btn).click()
         time.sleep(1)
+
+        #Assert
+        response_data = browser.find_element(By.XPATH,elem.add_assert_a).text
+        self.assertIn(response_data,"Admin")
 
 if __name__ == "__main__": 
     unittest.main()

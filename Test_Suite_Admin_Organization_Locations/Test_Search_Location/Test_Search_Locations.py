@@ -23,7 +23,7 @@ class TestSearch(unittest.TestCase):
         time.sleep(1)
         browser.find_element(By.XPATH,elem.org).click() 
         time.sleep(1)
-        browser.find_element(By.XPATH,elem.loc).click() #Menu Locations
+        browser.find_element(By.XPATH,elem.loc).click() #Open Menu Locations
         time.sleep(1)
         browser.find_element(By.XPATH,elem.src_name).send_keys("Canadian Regional HQ") #Right Name
         time.sleep(1)
