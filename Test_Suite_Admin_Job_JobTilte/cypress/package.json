@@ -1,0 +1,14 @@
+{
+  "name": "Wafa",
+  "version": "1.0.0",
+  "description": "Ptoject akhir sanbercode QA",
+  "main": "index.js",
+  "author": "Wafa",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^12.7.0"
+  },
+  "dependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.2"
+  }
+}
