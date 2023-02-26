@@ -11,6 +11,32 @@ class TestAddJobTitle(unittest.TestCase):
         self.browser = webdriver.Chrome(ChromeDriverManager().install())
 
 
+    def test_delete_data(self):
+        # steps Login
+        browser = self.browser
+        browser.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+        time.sleep(1)
+        browser.find_element(By.NAME, "username").send_keys("Admin")
+        time.sleep(1)
+        browser.find_element(By.NAME, "password").send_keys("admin123")
+        time.sleep(1)
+        browser.find_element(By.CLASS_NAME, "oxd-button").click()
+        time.sleep(2)
+        browser.find_element(By.XPATH, "//span[normalize-space()='Admin']").click()
+        time.sleep(2)
+        browser.find_element(By.XPATH, "//span[normalize-space()='Job']").click()
+        time.sleep(2)
+        browser.find_element(By.LINK_TEXT, 'Job Titles').click()
+        time.sleep(2)
+
+        # validasi
+        current_url = browser.current_url
+        self.assertEqual(current_url, "https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewJobTitleList")
+
+        browser.find_element(By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div/div/div[3]/div/div/div[7]/div/div/div[1]/div[2]/div/div/button[2]").click()
+        time.sleep(3)
+
+
     # def test_Update_data(self):
     #     # steps Login
     #     browser = self.browser
